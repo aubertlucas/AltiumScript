@@ -16,10 +16,18 @@ ModuleName = "ComponentParameterEditor.vbs"
 ' @brief        Main entry point that calls the Pascal script
 ' @param        DummyVar        Dummy variable, not used
 Sub ComponentParameterEditor(DummyVar)
-    ' Call the Pascal script's main procedure
-    ' The Pascal script should be compiled and available in Altium's script system
-    ' Using the relative path from the project root
-    RunScriptFile "src\Schematic\ComponentParameterEditor.pas", "LaunchParameterEditor"
+    ' Note: Dans Altium, il n'est pas possible d'appeler directement un script Pascal depuis VBScript
+    ' Le script Pascal doit être enregistré dans le projet de scripts Altium
+    ' Pour utiliser cette fonctionnalité, vous devez :
+    ' 1. Ajouter ComponentParameterEditor.pas au projet de scripts Altium
+    ' 2. Compiler le projet
+    ' 3. Lancer directement "LaunchParameterEditor" depuis le menu Run Script d'Altium
+    
+    ShowMessage("Pour utiliser l'éditeur de paramètres de composants :" & vbCrLf & vbCrLf & _
+                "1. Assurez-vous que ComponentParameterEditor.pas est ajouté au projet de scripts" & vbCrLf & _
+                "2. Compilez le projet (clic droit > Compile)" & vbCrLf & _
+                "3. Lancez 'LaunchParameterEditor' depuis DXP > Run Script" & vbCrLf & vbCrLf & _
+                "Ou appelez directement la procédure depuis le script Pascal.")
 End Sub
 
 ' Alternative entry point for direct access
