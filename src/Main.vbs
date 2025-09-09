@@ -206,3 +206,12 @@ Sub ButtonSwapSchematicDesignatorsClick(Sender)
 
 	Call SwapSchematicDesignators(dummyVar)
 End Sub
+
+' @brief    Called when the "Component Parameter Editor" button is clicked
+Sub ButtonComponentParameterEditorClick(Sender)
+    FormMainScript.Hide
+    FormMainScript.Close
+    
+    ' Call the Component Parameter Editor script
+    ComponentParameterEditor(DummyVar)
+End Sub
